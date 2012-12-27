@@ -2,9 +2,9 @@ function [ grid ] = fractalcircle_fractal( triangle, wid, hei )
 %FRACTALCIRCLE_FRACTAL Calculate the pixel grid for a given fractal
 
 % Settings
-radius_threshold = 1;
-max_circles = 1000;
-halfwidth = 1;
+radius_threshold = 0.5;
+max_circles = 10000;
+halfwidth = 1.1;
 
 % Vertexes
 v1 = triangle(:,1);
@@ -21,7 +21,7 @@ circ_list = {e1; e2; e3};       % First three are special cases
 todo_list = {[1 2 3]};
 
 % Grid
-grid = NaN(hei, wid);
+grid = zeros(hei, wid);
 
 % Draw triangle
 grid = fractalcircle_addtriangle(grid, triangle, halfwidth);
@@ -119,7 +119,7 @@ while ~isempty(todo_list)
         todo_list = [todo_list; mat2cell(new_triples, [1 1 1], 3)];
         
         % Say something
-        fprintf(1, 'Now calculated %u circles.\n', id);
+        fprintf(1, 'Now calculated %u circles. %u remain in to-do list.\n', id, length(todo_list));
         
         % Increment id
         id = id + 1;
@@ -127,7 +127,7 @@ while ~isempty(todo_list)
     end
     
     % Stop conditions
-    if counter>=max_circles
+    if id>=max_circles
         break;
     end
     
