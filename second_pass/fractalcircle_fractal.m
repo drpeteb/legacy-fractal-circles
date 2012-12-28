@@ -1,10 +1,5 @@
-function [ grid ] = fractalcircle_fractal( triangle, wid, hei )
+function [ grid ] = fractalcircle_fractal( triangle, wid, hei, halfwidth, radius_threshold, max_circles )
 %FRACTALCIRCLE_FRACTAL Calculate the pixel grid for a given fractal
-
-% Settings
-radius_threshold = 0.5;
-max_circles = 10000;
-halfwidth = 1.1;
 
 % Vertexes
 v1 = triangle(:,1);
