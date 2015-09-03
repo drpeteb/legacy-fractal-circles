@@ -142,6 +142,6 @@ plot(vert(1,:), vert(2,:), 'linewidth', 2);
 % Draw the circles
 for ii = 4:length(circ_list)
     
-    draw_circle(gca, circ_list{ii}.c, circ_list{ii}.r, 100);
+    draw_circle(gca, circ_list{ii}.c, circ_list{ii}.r, 'b', 100);
     
 end
