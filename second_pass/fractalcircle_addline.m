@@ -4,7 +4,7 @@ function [ grid ] = fractalcircle_addline( grid, vstart, vstop, halfwidth )
 [hei, wid] = size(grid);
 
 vmid = 0.5*(vstop+vstart);
-len = magn(vstop-vstart);
+len = norm(vstop-vstart,2);
 
 % Transformation
 ang = atan2(vstop(2)-vstart(2), vstop(1)-vstart(1));

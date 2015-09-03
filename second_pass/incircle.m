@@ -33,7 +33,8 @@ ep = unit(ep);
 % Solve for radius
 x = [-eab ep]\(va-cen);
 int = va + x(1)*eab;
-rad = magn(int-cen);
+rad = norm(int-cen,2);
 
 end
+
 
